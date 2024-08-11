@@ -5,26 +5,26 @@ interface Customer {
   id: number;
   name: string;
   title: string;
+  address: string; 
 }
 
 interface CustomerListProps {
   customers: Customer[];
-  selectedCustomerId: number | null;
-  onSelectCustomer: (id: number) => void;
+  selectedCustomer: Customer | null;
+  onSelectCustomer: (customer: Customer) => void;
 }
 
-const CustomerList: React.FC<CustomerListProps> = ({ customers, selectedCustomerId, onSelectCustomer }) => {
+const CustomerList: React.FC<CustomerListProps> = ({ customers, selectedCustomer, onSelectCustomer }) => {
   return (
     <div className="customer-list">
       {customers.map(customer => (
         <div
           key={customer.id}
-          className={`customer-card ${selectedCustomerId === customer.id ? 'selected' : ''}`}
-          onClick={() => onSelectCustomer(customer.id)}
+          className={`customer-card ${selectedCustomer && selectedCustomer.id === customer.id ? 'selected' : ''}`}
+          onClick={() => onSelectCustomer(customer)}
         >
           <h3>{customer.name}</h3>
           <p>{customer.title}</p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
         </div>
       ))}
     </div>
