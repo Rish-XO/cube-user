@@ -1,7 +1,7 @@
 .customer-list {
-    width: 33%; /* Takes up 1/3 of the screen */
-    height: 100vh; /* Full height of the viewport */
-    overflow-y: auto; /* Enables scrolling */
+    width: 33%; 
+    height: 100vh; 
+    overflow-y: auto; 
     border-right: 1px solid #ddd;
     padding: 10px;
     background-color: #f9f9f9;
